@@ -11,13 +11,13 @@ class EmployeeSalary():
 
     @classmethod    
     def get_hours(cls, name, rest_days, email):
-        cls.hours = (7 - rest_days) * 8
-        return cls(name, cls.hours, rest_days, email)
+        hours = (7 - rest_days) * 8
+        return cls(name, hours, rest_days, email)
 
     @classmethod    
     def get_email(cls, name, hours, rest_days):
-        cls.email = f"{name}@email.com"
-        return cls(name, hours, rest_days, cls.email)
+        email = f"{name}@email.com"
+        return cls(name, hours, rest_days, email)
     
     @classmethod    
     def set_hourly_payment(cls, hourly_payment=int):
@@ -26,3 +26,6 @@ class EmployeeSalary():
     def salary(self):
         salary = self.hours * self.hourly_payment
         return salary
+
+employee1 = EmployeeSalary("Иванов", hours=4, rest_days=2)
+print("Имя сотрудника:", employee1.name, "количество выходных:", employee1.rest_days, "зарплата:", employee1.salary())
